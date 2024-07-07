@@ -9,9 +9,12 @@ function netSalary(salary){
     let payee = payeeRate(salary)
     console.log(`payee ${payee}`)
 
+    let nssf = nssfContribution(salary)
+    console.log(`nssf contribution: ${nssf}`)
+
     let personalRelief = 2400
 
-    let netSalary = salary - payee - nhif + personalRelief;
+    let netSalary = (salary - payee - nhif - nssf) + personalRelief;
     console.log(`netSalary: ${netSalary}`)
     return netSalary;
 }
@@ -73,4 +76,9 @@ function nhifContribution(salary){
         return 1700
     }
 
+}
+
+function nssfContribution(salary){
+    let nssf = salary * 0.06;
+    return nssf
 }
